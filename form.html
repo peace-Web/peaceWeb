@@ -76,7 +76,7 @@
         
    <div class="container mt-5 mb-5">
     <h2>Submit Your Order</h2>
-    <form action="https://formsubmit.co/peaceweb3@gmail.com" method="post" class="row g-3">
+    <form action="" method="post" class="row g-3">
       <div class="col-md-6">
          <label for="firstName">First Name</label>
          <br>
@@ -95,32 +95,32 @@
       <div class="col-md-6">
         <label for="phone">Phone Number(Whatsapp)</label>
         <br>
-        <input type="phone" name="Phone" required>
+        <input type="phone" id="phone" name="Phone" required>
       </div>
       <div class="col-md-6">
         <label for="package">Choose Package</label>
          <select name="package" id="package">
-          <option value="1">Package 1</option>
-          <option value="2">Package 2</option>
+          <option value="1">Package 5</option>
+          <option value="2">Package 4</option>
           <option value="3">Package 3</option>
-          <option value="4">Package 4</option>
-          <option value="5">Package 5</option>
+          <option value="4">Package 2</option>
+          <option value="5">Package 1</option>
          </select>
       </div>
       <div class="col-md-6">
-       <input type="radio" name="payment_Gateway" value="PayPal">
+       <input type="radio" name="payment_Gateway" id="payment" value="PayPal">
        <label for="">PayPal</label>
-       <input type="radio" name="payment_Gateway" value="Credit Card">
+       <input type="radio" name="payment_Gateway" id="payment" value="Credit Card">
        <label for="">Credit Card</label>
       </div>
       <div class="col-md-12">
         <label for="comment">Leave A Message(Optional)</label>
         <br>
-        <textarea name="comment" id="" rows="3"></textarea>
+        <textarea name="comment" id="message" rows="3"></textarea>
 
       </div>
       <div class="col-md-12">
-        <button type="submit" class="btn btn-primary send-order" >Send Order</button>
+        <button type="submit" onclick="gotowhatsapp()" class="btn btn-primary send-order" >Send Order</button>
       </div>
 
     </form>
@@ -172,7 +172,7 @@
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p>Join Our Newsletter to receive notifications and updates</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
@@ -207,7 +207,29 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  <script>
+    function gotowhatsapp() {
+        
+        var name = document.getElementById("firstName").value;
+        var lname = document.getElementById("LastName").value;
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var package = document.getElementById("package").value;
+        var payment = document.getElementById("payment").value;
+        var message = document.getElementById("message").value;
+    
+        var url = "https://wa.me/+2120703823791?text=" 
+        + "Name: " + name + "%0a"
+        + "Last-Name: " + lname + "%0a"
+        + "Phone: " + phone + "%0a"
+        + "Email: " + email  + "%0a"
+        + "Package: " + package  + "%0a"
+        + "Payment-Gateway: " + payment  + "%0a"
+        + "Message: " + message; 
+    
+        window.open(url, '_blank').focus();
+    }
+    </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -219,10 +241,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-    btn = document.getElementsByClassName('send-order')  
-    console.log("clicked")
-  </script>
+
 
 </body>
 
